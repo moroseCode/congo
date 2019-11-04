@@ -6,7 +6,7 @@ USE bamazon;
 
 CREATE TABLE products
 (
-    item_id INT AUTO INCREMENT PRIMARY KEY,
+    item_id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(100),
     department_name VARCHAR(100),
     price DECIMAL(5,2),

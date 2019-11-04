@@ -1,0 +1,26 @@
+{
+  "name": "congo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moroseCode/congo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moroseCode/congo/issues"
+  },
+  "homepage": "https://github.com/moroseCode/congo#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "inquirer": "^7.0.0",
+    "list-it": "^1.0.3",
+    "mysql": "^2.17.1"
+  }
+}
