@@ -71,17 +71,20 @@ function displayWares() {
 function lowInv(){
     var query = "SELECT * FROM products WHERE stock_quantity < 5";
     connection.query(query, function(err, res) {
-            if (err) throw err;
-            if(!res.length > 0){
-                console.log("");
-                console.log("There are currently no low inventory items.")
+        if (err) throw err;
+        if(!res.length > 0){
+            console.log("");
+            console.log("There are currently no low inventory items.")
+            displayWares().then(function() {
                 mgrPrompt();
-            } else {
+            });
+        } else {
             var lowProds = new ListIt({"autoAlign": true});
             console.log(lowProds.d( res ).toString() );
-            mgrPrompt();
-            };
-            // console.log(res[0]);
+            displayWares().then(function() {
+                mgrPrompt();
+            });
+        }
     });
 };
 
@@ -144,10 +147,9 @@ function addItem(){
         }
     ])
     .then(function(inquirerResponse) {
-        // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
         if(inquirerResponse.confirm) {
-            var post = {product_name: inquirerResponse.itemName, department_name: inquirerResponse.itemDept, price: inquirerResponse.itemPrice, stock_quantity: inquirerResponse.itemQuant}
-            console.log("INSERT INTO products(product_name, department_name, price, stock_quantity) VALUES(" + inquirerResponse.itemName + "," +  inquirerResponse.itemDept + "," + inquirerResponse.itemPrice + "," + inquirerResponse.itemQuant)
+            var post = {product_name: inquirerResponse.@mh3rst^
+                itemName, department_name: inquirerResponse.itemDept, price: inquirerResponse.itemPrice, stock_quantity: inquirerResponse.itemQuant}
             var query = ("INSERT INTO products SET ?");  
             connection.query(query, post, function(err) {
                 if (err) throw err;
