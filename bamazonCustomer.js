@@ -18,13 +18,13 @@ connection.connect(function(err) {
 
 function displayWares() {
     connection.query(
-        "SELECT * FROM products", function(err, result) {
+        "SELECT * FROM products", function(err, res) {
             if (err) throw err;
             var prods = new ListIt({"autoAlign": true});
-            console.log(prods.d( result ).toString() );
+            console.log(prods.d( res ).toString() );
+            buyPrompt();
         }
     );
-    buyPrompt();
 };
 
 var buyPrompt = function(){
@@ -43,17 +43,24 @@ var buyPrompt = function(){
     
     // After the prompt, store the user's response in a variable called location.
     ]).then(function(prodBuy) {
+        var query = "SELECT * FROM products WHERE ?";
         connection.query(
-            "SELECT * FROM products", function(err, result) {
+            query, {item_id: prodBuy.selectID},  function(err, res) {
                 if (err) throw err;
-            });
-        if(result.stock_quantity >= prodBuy.prodQuant) {
-            connection.query(
-                "UPDATE products SET stock_quantity = stock_quantity - prodBuy.prodQuant WHERE id = selectID", function(err, result) {
-                    if (err) throw err;
+                // console.log("Quantity: " + res[0].stock_quantity);
+                // console.log("Ordered: " + prodBuy.prodQuant);
+                // console.log(res.stock_quantity >= prodBuy.prodQuant)
+                if(res[0].stock_quantity >= prodBuy.prodQuant) {
+                    connection.query("UPDATE products SET stock_quantity = (" + res[0].stock_quantity + "-" + prodBuy.prodQuant + ") WHERE item_id = " + prodBuy.selectID, function(err){
+                        if (err) throw err;
+                    console.log("You successfully purchased " + prodBuy.prodQuant + " " + res[0].product_name)
+                    displayWares()});
+                } else {
+                    console.log("We do not have enough to fulfill this order.")
+                   displayWares();
                 }
-            );
-            console.log("You successfully purchased " + prodBuy.prodQuant + " " + result.id)
-        };
+
+                // console.log(res[0]);
+            });
     });
 };

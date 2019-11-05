@@ -14,13 +14,18 @@ CREATE TABLE products
 );
 
 INSERT INTO products(product_name, department_name, price, stock_quantity)
-VALUES ('Gamer PC', 'Computers', 999.99, 3),
-('Gamer Keyboard', 'Peripherals', 79.99, 5),
-('Gamer Mouse', 'Peripherals', 49.99, 5),
-('Gaming Monitor', 'Monitors', 399.99, 1),
-('Performance Mouse Pad', 'Peripherals', 29.99, 6),
-('Studio Quality Headset', 'Headsets', 249.99, 4),
-('Premium Webcam', 'Webcams', 99.99, 3),
-('Premium Lighting', 'Lighting', 124.99, 2),
-('Gamer Chair', 'Furniture', 299.99, 3),
-('Mahogany Computer Desk', 'Furniture', 299.99, 1);
+VALUES ('Gamer PC', 'Computers', 999.99, 10),
+('Gamer Keyboard', 'Peripherals', 79.99, 30),
+('Gamer Mouse', 'Peripherals', 49.99, 30),
+('Gaming Monitor', 'Monitors', 399.99, 20),
+('Performance Mouse Pad', 'Peripherals', 29.99, 40),
+('Studio Quality Headset', 'Headsets', 249.99, 20),
+('Premium Webcam', 'Webcams', 99.99, 40),
+('Premium Lighting', 'Lighting', 124.99, 50),
+('Gamer Chair', 'Furniture', 299.99, 15),
+('Mahogany Computer Desk', 'Furniture', 299.99, 10);
+
+SELECT * FROM products;
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password1';
