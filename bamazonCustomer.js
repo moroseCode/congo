@@ -53,7 +53,8 @@ var buyPrompt = function(){
                 if(res[0].stock_quantity >= prodBuy.prodQuant) {
                     connection.query("UPDATE products SET stock_quantity = (" + res[0].stock_quantity + "-" + prodBuy.prodQuant + ") WHERE item_id = " + prodBuy.selectID, function(err){
                         if (err) throw err;
-                    console.log("You successfully purchased " + prodBuy.prodQuant + " " + res[0].product_name)
+                        var total = (res[0].price * prodBuy.prodQuant)
+                    console.log("You successfully purchased " + prodBuy.prodQuant + " " + res[0].product_name + " for a total of $" + total) 
                     displayWares()});
                 } else {
                     console.log("We do not have enough to fulfill this order.")

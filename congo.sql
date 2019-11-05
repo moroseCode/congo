@@ -29,3 +29,5 @@ SELECT * FROM products;
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password1';
+
+SELECT * FROM products WHERE stock_quantity < 20;
