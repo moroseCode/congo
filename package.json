@@ -22,5 +22,6 @@
     "inquirer": "^7.0.0",
     "list-it": "^1.0.3",
     "mysql": "^2.17.1"
-  }
+  },
+  "devDependencies": {}
 }
