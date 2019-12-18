@@ -6,17 +6,17 @@ congo
 Congo is a commandline utility that allows users to view the inventory of the Congo retailer and make purchases directly.
 
 # Visuals
-After entering the command "node liri.js" this question appears:
-<img src="images/first question.png" alt="first question"><br>
+After entering the command "node bamazonCustomer.js" this prompt appears:
+<img src="images/congoCustStart.png" alt="starting prompt"><br>
 
-After a selection is made, this second question appears:
-<img src="images/second question.png" alt="second question"><br>
+After an id is selected, this second prompt appears:
+<img src="images/congoCustSelect.png" alt="second prompt"><br>
 
-Once the answer is given and the user hits return, the results appear as follows:
-<img src="images/results.png" alt="results"><br>
+Next the user enters how many of that particular item they want to purchase. They are then shown the number entered and the total cost for them. The menu is displayed again and the user can then make another purchase if they would like:
+<img src="images/congoCustPurchase.png" alt="Purchase made"><br>
 
 # [Node](https://nodejs.org/en/) Packages Used
   - [dotenv](https://www.npmjs.com/package/dotenv)
   - [inquirer](https://www.npmjs.com/package/inquirer)
   - [list-it](https://www.npmjs.com/package/list-it)
-  - [node-spotify-api](https://www.npmjs.com/package/mysql)
+  - [mysql](https://www.npmjs.com/package/mysql)
